@@ -18,6 +18,6 @@ COPY --from=build-stage /tags-app /tags-app
 
 COPY --from=build-stage /app/.env .
 
-EXPOSE 8095
+EXPOSE 8098
 
 ENTRYPOINT ["./tags-app", "--config=.env", "--env=local"]
