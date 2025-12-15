@@ -1,3 +1,12 @@
+// @title Tag Service API
+// @version 1.0
+// @description Microservice handles creation and retrieval of tags with validation and UUID management
+//
+// @host localhost:8098
+// @BasePath /api/v1
+//
+// @tag.name Tags
+// @tag.description "Tag operations: creating and receiving information"
 package main
 
 import (
@@ -17,8 +26,11 @@ import (
 	"tags/internal/storage/postgres"
 	"time"
 
+	_ "tags/docs"
+
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
+	httpSwagger "github.com/swaggo/http-swagger"
 )
 
 const (
@@ -58,6 +70,10 @@ func main() {
 			r.Post("/tags/info", tags_info.New(log, storage, uuidService))
 		})
 	})
+
+	router.Get("/swagger/*", httpSwagger.Handler(
+		httpSwagger.URL("/swagger/doc.json"),
+	))
 
 	log.Info("starting server", slog.String("address", cfg.HTTPServer.Host+":"+cfg.HTTPServer.Port))
 

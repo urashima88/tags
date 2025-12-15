@@ -27,6 +27,16 @@ type UUIDService interface {
 	CleanAndValidateIDs(ids []string) []string
 }
 
+// @Summary Get tag information
+// @Description Retrieves detailed information for tags based on their UUIDs
+// @Tags Tags
+// @Accept json
+// @Produce json
+// @Param request body Request true "Tag IDs to retrieve"
+// @Success 200 {object} Response
+// @Failure 400 {object} response.Response
+// @Failure 500 {object} response.Response
+// @Router /tags/info [post]
 func New(log *slog.Logger, tagInfoDBGetter TagInfoDBGetter, uuidService UUIDService) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		const op = "handlers.tags.info.New"

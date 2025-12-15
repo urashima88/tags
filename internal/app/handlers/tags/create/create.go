@@ -27,6 +27,16 @@ type TagDBCreator interface {
 	CreateTags(tagNames []string) ([]tag.Tag, error)
 }
 
+// @Summary Create new tags
+// @Description Creates new tags from the provided list of tag names
+// @Tags Tags
+// @Accept json
+// @Produce json
+// @Param request body Request true "Tags to create"
+// @Success 200 {object} Response
+// @Failure 400 {object} response.Response
+// @Failure 500 {object} response.Response
+// @Router /tags [post]
 func New(log *slog.Logger, tagCreator TagCreator, tagDBCreator TagDBCreator) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		const op = "handlers.tags.create.New"
