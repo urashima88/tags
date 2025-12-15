@@ -33,9 +33,9 @@ type UUIDService interface {
 // @Accept json
 // @Produce json
 // @Param request body Request true "Tag IDs to retrieve"
-// @Success 200 {object} Response
-// @Failure 400 {object} response.Response
-// @Failure 500 {object} response.Response
+// @Success 200 {object} Response "Tags retrieved successfully"
+// @Failure 400 {object} response.Response "Bad request - invalid JSON, no tag IDs or no valid tag IDs provided"
+// @Failure 500 {object} response.Response "Internal server error - database query failed"
 // @Router /tags/info [post]
 func New(log *slog.Logger, tagInfoDBGetter TagInfoDBGetter, uuidService UUIDService) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {

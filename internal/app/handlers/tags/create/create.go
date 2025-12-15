@@ -33,9 +33,9 @@ type TagDBCreator interface {
 // @Accept json
 // @Produce json
 // @Param request body Request true "Tags to create"
-// @Success 200 {object} Response
-// @Failure 400 {object} response.Response
-// @Failure 500 {object} response.Response
+// @Success 200 {object} Response "Tags processed successfully"
+// @Failure 400 {object} response.Response "Bad request - invalid JSON, no tags or no valid tags provided, "
+// @Failure 500 {object} response.Response "Internal server error - database query failed"
 // @Router /tags [post]
 func New(log *slog.Logger, tagCreator TagCreator, tagDBCreator TagDBCreator) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {

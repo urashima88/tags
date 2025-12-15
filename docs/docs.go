@@ -41,19 +41,19 @@ const docTemplate = `{
                 ],
                 "responses": {
                     "200": {
-                        "description": "OK",
+                        "description": "Tags processed successfully",
                         "schema": {
                             "$ref": "#/definitions/tags_create.Response"
                         }
                     },
                     "400": {
-                        "description": "Bad Request",
+                        "description": "Bad request - invalid JSON, no tags or no valid tags provided, ",
                         "schema": {
                             "$ref": "#/definitions/response.Response"
                         }
                     },
                     "500": {
-                        "description": "Internal Server Error",
+                        "description": "Internal server error - database query failed",
                         "schema": {
                             "$ref": "#/definitions/response.Response"
                         }
@@ -87,19 +87,19 @@ const docTemplate = `{
                 ],
                 "responses": {
                     "200": {
-                        "description": "OK",
+                        "description": "Tags retrieved successfully",
                         "schema": {
                             "$ref": "#/definitions/tags_info.Response"
                         }
                     },
                     "400": {
-                        "description": "Bad Request",
+                        "description": "Bad request - invalid JSON, no tag IDs or no valid tag IDs provided",
                         "schema": {
                             "$ref": "#/definitions/response.Response"
                         }
                     },
                     "500": {
-                        "description": "Internal Server Error",
+                        "description": "Internal server error - database query failed",
                         "schema": {
                             "$ref": "#/definitions/response.Response"
                         }
