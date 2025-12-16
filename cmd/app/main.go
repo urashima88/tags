@@ -67,7 +67,7 @@ func main() {
 	router.Route("/api", func(r chi.Router) {
 		r.Route("/v1", func(r chi.Router) {
 			r.Post("/tags", tags_create.New(log, tagService, storage))
-			r.Post("/tags/info", tags_info.New(log, storage, uuidService))
+			r.Get("/tags/info", tags_info.New(log, storage, uuidService))
 		})
 	})
 

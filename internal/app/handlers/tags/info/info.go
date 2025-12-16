@@ -36,7 +36,7 @@ type UUIDService interface {
 // @Success 200 {object} Response "Tags retrieved successfully"
 // @Failure 400 {object} response.Response "Bad request - invalid JSON, no tag IDs or no valid tag IDs provided"
 // @Failure 500 {object} response.Response "Internal server error - database query failed"
-// @Router /tags/info [post]
+// @Router /tags/info [get]
 func New(log *slog.Logger, tagInfoDBGetter TagInfoDBGetter, uuidService UUIDService) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		const op = "handlers.tags.info.New"

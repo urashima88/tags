@@ -62,7 +62,7 @@ const docTemplate = `{
             }
         },
         "/tags/info": {
-            "post": {
+            "get": {
                 "description": "Retrieves detailed information for tags based on their UUIDs",
                 "consumes": [
                     "application/json"
