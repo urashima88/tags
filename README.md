@@ -1,1 +1,3 @@
 # tags
+
+This is a simple microservice for working with tags in the Pixora application.
